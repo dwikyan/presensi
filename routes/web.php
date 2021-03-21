@@ -20,4 +20,8 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', [AuthController::class, 'index']);
 Route::get('/postlogin', [AuthController::class, 'postlogin']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/project', [ProjectController::class, 'index']);
+Route::get('/project', [ProjectController::class, 'userProject']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout.user');
