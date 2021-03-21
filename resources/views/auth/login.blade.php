@@ -37,7 +37,15 @@
 					<span class="login100-form-title p-b-33">
 						Account Login
 					</span>
-
+                    @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
                         @error('email')
                             <span class="invalid-feedback" role="alert">

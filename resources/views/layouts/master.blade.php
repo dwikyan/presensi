@@ -75,10 +75,27 @@
                     <li class="active">
                         <a href="/"><i class="menu-icon fa fa-laptop"></i>Dashboard</a>
                     </li>
-                
-                    <li>
-                        <a href="/project"><i class="menu-icon fa fa-tasks"></i>Project</a>
-                    </li>
+                    @if (Auth::user()->role == 'admin')
+                        <li>
+                            <a href="/project"><i class="menu-icon fa fa-tasks"></i>Management Project</a>
+                        </li>
+                        <li>
+                            <a href="/project"><i class="menu-icon fa fa-tasks"></i>Management User</a>
+                        </li>
+                        <li>
+                            <a href="/project"><i class="menu-icon fa fa-tasks"></i>Laporan</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="/project"><i class="menu-icon fa fa-tasks"></i>Project</a>
+                        </li>
+                        <li>
+                            <a href="/project"><i class="menu-icon fa fa-tasks"></i>Task</a>
+                        </li>
+                        <li>
+                            <a href="/project"><i class="menu-icon fa fa-tasks"></i>Rating</a>
+                        </li>
+                    @endif
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -180,8 +197,8 @@
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
                             <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span class="count">13</span></a>
-                            
-                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+
+                            <a class="nav-link" href="{{ route('logout.user') }}" onclick="return confirm('Are you sure?')"><i class="fa fa-power -off"></i>Logout</a>
                         </div>
                     </div>
 
